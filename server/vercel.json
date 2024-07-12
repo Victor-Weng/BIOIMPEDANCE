@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "routes": [
+      {
+        "src": "/bios",
+        "dest": "/api/index.js"
+      },
+      {
+        "src": "/bios/:location/:size/:depth/:frequency",
+        "dest": "/api/index.js"
+      }
+    ]
+  }

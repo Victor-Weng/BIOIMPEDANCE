@@ -1,11 +1,8 @@
-const Pool = require("pg").Pool;
+const { Pool } = require('pg')
+require('dotenv').config()
 
 const pool = new Pool({
-    user: "postgres",
-    password: "12345678", // password to postgres
-    host: "localhost",
-    port: 5432, // standard postgres port
-    database: "bioimpedance"
-});
+  connectionString: "postgres://default:xRJ2LyYW1tTj@ep-black-recipe-a1kwfivm-pooler.ap-southeast-1.aws.neon.tech:5432/verceldb?sslmode=require?sslmode=require",
+})
 
 module.exports = pool;

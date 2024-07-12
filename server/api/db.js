@@ -15,7 +15,7 @@ pool.on('error', (err) => {
       console.error('Error connecting to the database', err);
     } else {
       console.log('Connected to the PostgreSQL database');
-      done(); // release the client back to the pool
+      done(); // release the client back to the pool.
     }
   });
 

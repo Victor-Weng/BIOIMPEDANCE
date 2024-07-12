@@ -9,88 +9,35 @@ app.use(express.json());
 
 //ROUTES//
 
-// create a todo
+// get all bios
 
-app.post("/bio", async(req, res) => {
+app.get("/bios", async(req, res) => {
     try {
-        
-        //console.log(req.body);
-
-        const { description } = req.body; // equivalent to const description = req.body.description;
-        const newTodo = await pool.query(
-            "INSERT INTO bio (description) VALUES($1) RETURNING * ", // Returning returns back the data
-            [description] // this argument replaces the $1 part kinda like f-string
-        ); 
-
-        res.json(newTodo.rows[0]); // Access the rows column that is returned after POST (in postman)
-    } catch (err) {
-        console.log(err.message);
-        
-    }
-})
-
-// get all todos
-
-app.get("/todos", async(req, res) => {
-    try {
-        const allTodos = await pool.query("SELECT * FROM todo");
-        res.json(allTodos.rows);
+        const allBios = await pool.query("SELECT * FROM bio");
+        res.json(allBios.rows);
     } catch (err) {
         console.error(err.message);
         
     }
 });
 
-// get a todo (specific todo)
+// get a specific bio
 
-app.get("/todos/:id", async(req,res) => { 
-    // the :id slot if replaced in url by something else, gets returned
-    // This can be used to access specific elements. Ex. :subject returns { subject: '2'} for
-    // url /todos/2
+app.get("/bios/:location/:size/:depth/:frequency", async (req, res) => { 
     try {
-        const { id } = req.params; // const id = req.params.id;
-        const todo = await pool.query("SELECT * FROM todo WHERE todo_id = $1", 
-            [id]);
-        // WHERE makes it access only the specified row, NOT all rows by default,
-        
-        //console.log(req.params);
-
-        res.json(todo.rows[0]);
-    } catch (err) {
-        console.error(err.message);
-        
-    }
-})
-
-// update a todo
-
-app.put("/todos/:id", async(req,res) => {
-    try {
-        const { id } = req.params;
-        const { description } = req.body;
-        const updateTodo = await pool.query("UPDATE todo SET description = $1 WHERE todo_id = $2",
-            [description, id]
+        const { location, size, depth, frequency } = req.params;
+        const bio = await pool.query(
+            "SELECT * FROM bio WHERE location = $1 AND size = $2 AND depth = $3 AND frequency = $4", 
+            [location, size, depth, frequency]
         );
-
-        res.json("Todo was updated!");
+        
+        res.json(bio.rows[0]);
     } catch (err) {
         console.error(err.message);
+        res.status(500).json({ error: "Error in index.js" });
     }
 });
 
-// delete a todo
-
-app.delete("/todos/:id", async (req, res) => {
-    try {
-        const { id } = req.params; // const id = req.params.id;
-        const deleteTodo = await pool.query("DELETE FROM todo WHERE todo_id = $1",
-            [id]
-        );
-        res.json("Todo was deleted!");
-    } catch (err) {
-        console.log(err.message)
-    }
-})
 
 port = 5000; // express port
 

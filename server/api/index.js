@@ -11,7 +11,7 @@ app.use(express.json());
 
 // get all bios
 
-app.get("/bios", async(req, res) => {
+app.get("https://bioimpedance-backend.vercel.app/bios", async(req, res) => {
     try {
         const allBios = await pool.query("SELECT * FROM bio");
         res.json(allBios.rows);
@@ -23,7 +23,7 @@ app.get("/bios", async(req, res) => {
 
 // get a specific bio
 
-app.get("/bios/:location/:size/:depth/:frequency", async (req, res) => { 
+app.get("https://bioimpedance-backend.vercel.app/bios/:location/:size/:depth/:frequency", async (req, res) => { 
     try {
         const { location, size, depth, frequency } = req.params;
         const bio = await pool.query(

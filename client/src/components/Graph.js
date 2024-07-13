@@ -1,32 +1,32 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useContext, Fragment } from 'react';
+import { BioContext } from '../BioContext';
 
-const Graph = () => { // { bioDetails }
-    const [bio, setBio] = useState(null);
+const Graph = () => {
+    const { bio, fetchBio } = useContext(BioContext);
 
-    
-    useEffect(() => {
-        const fetchBio = async () => {
-            try {
-                const response = await fetch(`${process.env.REACT_BACKEND_URL}/bios`);
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                const jsonData = await response.json();
-                console.log("Fetched bios data:", jsonData); // Log fetched data
-                setBio(jsonData);
-            } catch (err) {
-                console.error("Error from Graph.js :", err.message);
-            }
-        };
-
-        fetchBio();
-    }, []);
-
-    return <Fragment>
-        <div>
-            <p>Test</p>
-        </div>
-    </Fragment>
-}
+    return (
+        <Fragment>
+            <div>
+                <h1>Bios Data</h1>
+                <button onClick={fetchBio}>Calculate</button>
+                {bio ? (
+                    bio.map((bioItem, index) => (
+                        <div key={index}>
+                            <p>Location: {bioItem.location}</p>
+                            <p>Size: {bioItem.size}</p>
+                            <p>Depth: {bioItem.depth}</p>
+                            <p>Frequency: {bioItem.frequency}</p>
+                            <p>Condition: {bioItem.condition}</p>
+                            {/* Add other fields as needed */}
+                        </div>
+                    ))
+                ) : (
+                    <p>No bios data available</p>
+                )}
+            </div>
+        </Fragment>
+    );
+};
 
 export default Graph;
+

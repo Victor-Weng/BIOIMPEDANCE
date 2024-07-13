@@ -1,6 +1,9 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, useContext, Fragment } from 'react';
+import { BioContext } from '../BioContext';
 
 const Score = () => {
+    const { bio, fetchBio } = useContext(BioContext);
+
     return <Fragment>
         <div>
             <p>Test</p>

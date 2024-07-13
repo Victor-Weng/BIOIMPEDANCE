@@ -6,7 +6,7 @@ const Score = () => {
 
     return <Fragment>
         <div>
-            <p>Test</p>
+            <p>EIS Score : 9</p>
         </div>
     </Fragment>
 }

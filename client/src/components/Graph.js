@@ -8,16 +8,11 @@ const Graph = () => {
         <Fragment>
             <div>
                 <h1>Bios Data</h1>
-                <button onClick={fetchBio}>Calculate</button>
                 {bio ? (
                     bio.map((bioItem, index) => (
                         <div key={index}>
-                            <p>Location: {bioItem.location}</p>
-                            <p>Size: {bioItem.size}</p>
-                            <p>Depth: {bioItem.depth}</p>
-                            <p>Frequency: {bioItem.frequency}</p>
-                            <p>Condition: {bioItem.condition}</p>
-                            {/* Add other fields as needed */}
+                            <p>Impedance: {bioItem.impedance}</p>
+                            <p>Phase: {bioItem.phase}</p>
                         </div>
                     ))
                 ) : (

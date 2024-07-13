@@ -1,0 +1,104 @@
+.sidebar {
+    position: relative;
+    width: 250px;
+    height: 100%;
+    transition: width 0.3s ease;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ddd;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.closed {
+    width: 40px;
+}
+
+.toggle-button {
+    position: absolute;
+    top: 10px;
+    right: -20px;
+    width: 20px;
+    height: 40px;
+    background-color: #007bff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 0 3px 3px 0;
+}
+
+.parameter-content {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.parameter {
+    margin-bottom: 1.5em;
+}
+
+label {
+    display: block;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    color: #555;
+}
+
+input[type="range"] {
+    width: 100%;
+}
+
+span {
+    display: block;
+    text-align: center;
+    margin-top: 0.5em;
+    font-size: 1em;
+    color: #333;
+}
+
+.depth-switch {
+    display: flex;
+    justify-content: space-between;
+}
+
+.depth-switch button {
+    flex: 1;
+    padding: 10px;
+    margin: 0 5px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.depth-switch button.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.calculate-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calculate-button:hover {
+    background-color: #0056b3;
+}

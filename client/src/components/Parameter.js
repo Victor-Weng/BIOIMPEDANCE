@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 
-const Score = () => {
+const Parameter = () => {
     return <Fragment>
         <div>
             <p>Test</p>
@@ -8,4 +8,4 @@ const Score = () => {
     </Fragment>
 }
 
-export default Score;
+export default Parameter;

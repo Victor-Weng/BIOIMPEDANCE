@@ -12,6 +12,7 @@
       {
         "src": "/bios/:frequency",
         "dest": "/api/index.js",
+        "methods": ["GET"],
         "headers": {
           "Access-Control-Allow-Origin": "*"
           }

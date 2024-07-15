@@ -6,7 +6,7 @@ const Parameter = () => {
     const { fetchBio } = useContext(BioContext);
     const [isOpen, setIsOpen] = useState(true);
 
-    const [frequency, setFrequency] = useState(1000000);
+    const [frequency, setFrequency] = useState(2500000);
     const [depth, setDepth] = useState(0.1);
     const [meshSize, setMeshSize] = useState('5.00E-04');
     const [location, setLocation] = useState('Undefined');

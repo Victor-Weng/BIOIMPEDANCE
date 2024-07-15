@@ -6,19 +6,16 @@ const Overview = () => {
 
     return <Fragment>
         {bio ? (
-                    bio.map((bioItem, index) => (
-                        <div key={index}>
-                            <p>Location: {bioItem.location}</p>
-                            <p>Size: {bioItem.size}</p>
-                            <p>Depth: {bioItem.depth}</p>
-                            <p>Frequency: {bioItem.frequency}</p>
-                            <p>Condition: {bioItem.condition}</p>
-                            {/* Add other fields as needed */}
-                        </div>
-                    ))
-                ) : (
-                    <p>No bios data available</p>
-                )}
+                <div>
+                    <p>Location: {bio.location}</p>
+                    <p>Size: {bio.size}</p>
+                    <p>Depth: {bio.depth}</p>
+                    <p>Frequency: {bio.frequency}</p>
+                    <p>Condition: {bio.condition}</p>
+                </div>
+            ) : (
+                <p>No bios data available</p>
+            )}
     </Fragment>
 }
 

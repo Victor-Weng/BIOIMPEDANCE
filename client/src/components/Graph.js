@@ -9,12 +9,10 @@ const Graph = () => {
             <div>
                 <h1>Bios Data</h1>
                 {bio ? (
-                    bio.map((bioItem, index) => (
-                        <div key={index}>
-                            <p>Impedance: {bioItem.impedance}</p>
-                            <p>Phase: {bioItem.phase}</p>
-                        </div>
-                    ))
+                    <div>
+                        <p>Impedance: {bio.impedance}</p>
+                        <p>Phase: {bio.phase}</p>
+                    </div>
                 ) : (
                     <p>No bios data available</p>
                 )}

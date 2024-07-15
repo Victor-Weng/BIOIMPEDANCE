@@ -14,7 +14,17 @@ export const BioProvider = ({ children }) => {
             }
             const jsonData = await response.json();
             console.log("Fetched bios data:", jsonData);
-            setBio(jsonData);
+
+            // Check if jsonData is an array (i.e. more than one row that matches the conditions)
+            // if so, take just the first one
+            if (Array.isArray(jsonData)) {
+                console.log("More than one satisfied requirements, first result shown")
+                setBio(jsonData.length > 0 ? jsonData[0] : null);
+            } else {
+                console.log("Result shown")
+                setBio(jsonData);
+            }
+
         } catch (err) {
             console.error("Error from fetchBio:", err.message);
         }

@@ -36,7 +36,7 @@ app.get("/bios/:frequency", async (req, res) => {
         res.json(bio.rows[0]);
     } catch (err) {
         console.error(err.message);
-        res.status(500).json({ error: "Error in index.js" });
+        res.status(500).json({ error: "Error in index.js " });
     }
 });
 

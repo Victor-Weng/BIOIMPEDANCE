@@ -23,12 +23,14 @@ app.get("/bios", async(req, res) => {
 
 // get a specific bio
 
-app.get("/bios/:location/:size/:depth/:frequency", async (req, res) => { 
+app.get("/bios/:frequency", async (req, res) => { 
     try {
-        const { location, size, depth, frequency } = req.params;
+        const { frequency, depth, size, location, condition } = req.params;
         const bio = await pool.query(
-            "SELECT * FROM bio WHERE location = $1 AND size = $2 AND depth = $3 AND frequency = $4", 
-            [location, size, depth, frequency]
+            `SELECT * FROM bio 
+            WHERE 
+                frequency = $1::numeric`,  
+                [frequency]
         );
         
         res.json(bio.rows[0]);

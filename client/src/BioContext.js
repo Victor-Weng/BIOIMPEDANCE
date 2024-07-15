@@ -1,29 +1,23 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 
-// Create the context
 export const BioContext = createContext();
 
-// Create the provider component
 export const BioProvider = ({ children }) => {
     const [bio, setBio] = useState(null);
 
-    const fetchBio = async () => {
+    const fetchBio = async (frequency, depth, size, location, condition) => {
         try {
-            const response = await fetch(`https://bioimpedance-backend.vercel.app/bios`);
+            const response = await fetch(`https://bioimpedance-backend.vercel.app/bios/${frequency}/${depth}/${size}/${location}/${condition}`);
             if (!response.ok) {
                 throw new Error("Network response was not ok");
             }
             const jsonData = await response.json();
-            console.log("Fetched bios data:", jsonData); // Log fetched data
+            console.log("Fetched bios data:", jsonData);
             setBio(jsonData);
         } catch (err) {
-            console.error("Error from Graph.js:", err.message);
+            console.error("Error from fetchBio:", err.message);
         }
     };
-
-    useEffect(() => {
-        fetchBio();
-    }, []);
 
     return (
         <BioContext.Provider value={{ bio, fetchBio }}>
@@ -31,4 +25,3 @@ export const BioProvider = ({ children }) => {
         </BioContext.Provider>
     );
 };
-

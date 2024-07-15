@@ -23,12 +23,39 @@ app.get("/bios", async(req, res) => {
 
 // get a specific bio
 
-app.get("/bios/:location/:size/:depth/:frequency", async (req, res) => { 
+/*
+app.get("/bios/:frequency/:depth/:size/:location/:condition", async (req, res) => { 
     try {
-        const { location, size, depth, frequency } = req.params;
+        const { frequency, depth, size, location, condition } = req.params;
         const bio = await pool.query(
-            "SELECT * FROM bio WHERE location = $1 AND size = $2 AND depth = $3 AND frequency = $4", 
-            [location, size, depth, frequency]
+            `SELECT * FROM bio 
+            WHERE 
+                frequency = $1::numeric 
+                AND depth = $2::numeric 
+                AND size = $3::numeric 
+                AND location ILIKE $4 
+                AND condition ILIKE $5`,  
+                [frequency, depth, size, location, condition]
+        );
+        
+        res.json(bio.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: "Error in index.js" });
+    }
+});
+
+
+*/
+
+app.get("/bios/:frequency", async (req, res) => { 
+    try {
+        const { frequency, depth, size, location, condition } = req.params;
+        const bio = await pool.query(
+            `SELECT * FROM bio 
+            WHERE 
+                frequency = $1::numeric`,  
+                [frequency]
         );
         
         res.json(bio.rows[0]);

@@ -6,10 +6,10 @@ const Parameter = () => {
     const { fetchBio } = useContext(BioContext);
     const [isOpen, setIsOpen] = useState(true);
 
-    const [frequency, setFrequency] = useState(50);
+    const [frequency, setFrequency] = useState(1000000);
     const [depth, setDepth] = useState(0.1);
-    const [meshSize, setMeshSize] = useState('Small');
-    const [location, setLocation] = useState('Arm');
+    const [meshSize, setMeshSize] = useState('5.00E-04');
+    const [location, setLocation] = useState('Undefined');
     const [condition, setCondition] = useState('Normal');
 
     const handleFrequencyChange = (e) => setFrequency(e.target.value);
@@ -19,6 +19,11 @@ const Parameter = () => {
     const handleConditionChange = (e) => setCondition(e.target.value);
 
     const toggleSidebar = () => setIsOpen(!isOpen);
+
+    const handleCalculateClick = () => {
+        console.log("Clicked")
+        fetchBio(frequency, depth, meshSize, location, condition);
+    };
 
     return (
         <Fragment>
@@ -34,9 +39,9 @@ const Parameter = () => {
                             <label>Frequency Range</label>
                             <input 
                                 type="range" 
-                                min="10" 
-                                max="100" 
-                                step="10" 
+                                min="0" 
+                                max="2500000" 
+                                step="500000" 
                                 value={frequency} 
                                 onChange={handleFrequencyChange} 
                             />
@@ -70,15 +75,16 @@ const Parameter = () => {
                         <div className="parameter">
                             <label>Mesh Size</label>
                             <select value={meshSize} onChange={handleMeshSizeChange}>
-                                <option value="Small">Small</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Large">Large</option>
+                                <option value="1.00E-05">1.00E-05</option>
+                                <option value="1.00E-04">1.00E-04</option>
+                                <option value="5.00E-04">5.00E-04</option>
                             </select>
                         </div>
 
                         <div className="parameter">
                             <label>Test Location</label>
                             <select value={location} onChange={handleLocationChange}>
+                                <option value="Undefined">Undefined</option>
                                 <option value="Arm">Arm</option>
                                 <option value="Leg">Leg</option>
                                 <option value="Chest">Chest</option>
@@ -89,12 +95,12 @@ const Parameter = () => {
                             <label>Condition</label>
                             <select value={condition} onChange={handleConditionChange}>
                                 <option value="Normal">Normal</option>
-                                <option value="Dry">Dry</option>
-                                <option value="Oily">Oily</option>
+                                <option value="Atopic Dermatitis">Dry</option>
+                                <option value="Melanoma">Oily</option>
                             </select>
                         </div>
 
-                        <button className="calculate-button" onClick={fetchBio}>Calculate</button>
+                        <button className="calculate-button" onClick={handleCalculateClick}>Calculate</button>
                     </div>
                 )}
             </div>

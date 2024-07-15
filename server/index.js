@@ -7,6 +7,8 @@ const pool = require("./db"); // require the db.js file from parent folder
 app.use(cors());
 app.use(express.json());
 
+
+
 //ROUTES//
 
 // get all bios
@@ -29,7 +31,7 @@ app.get("/bios/:frequency", async (req, res) => {
         const bio = await pool.query(
             `SELECT * FROM bio 
             WHERE 
-                frequency = $1::numeric`,  
+                frequency = $1`,  
                 [frequency]
         );
         

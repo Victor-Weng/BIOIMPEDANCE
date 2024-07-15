@@ -3,15 +3,26 @@
     "routes": [
       {
         "src": "/bios",
-        "dest": "/api/index.js"
+        "dest": "/api/index.js",
+        "methods": ["GET"],
+        "headers": {
+          "Access-Control-Allow-Origin": "*"
+          }
       },
       {
         "src": "/bios/:frequency",
-        "dest": "/api/index.js"
+        "dest": "/api/index.js",
+        "headers": {
+          "Access-Control-Allow-Origin": "*"
+          }
       },
       {
         "src": "/bios/:frequency/:depth/:size/:location/:condition",
-        "dest": "/api/index.js"
+        "dest": "/api/index.js",
+        "methods": ["GET"],
+        "headers": {
+          "Access-Control-Allow-Origin": "*"
+          }
       }
     ]
   }

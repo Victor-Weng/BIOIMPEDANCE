@@ -1,21 +1,13 @@
-import React, { useContext, Fragment } from 'react';
-import { BioContext } from '../BioContext';
+import React, { Fragment } from 'react';
+import LinePlot from './LinePlot.js'
 
 const Graph = () => {
-    const { bio, fetchBio } = useContext(BioContext);
 
     return (
         <Fragment>
             <div>
                 <h1>Bios Data</h1>
-                {bio ? (
-                    <div>
-                        <p>Impedance: {bio.impedance}</p>
-                        <p>Phase: {bio.phase}</p>
-                    </div>
-                ) : (
-                    <p>No bios data available</p>
-                )}
+                <LinePlot/>
             </div>
         </Fragment>
     );

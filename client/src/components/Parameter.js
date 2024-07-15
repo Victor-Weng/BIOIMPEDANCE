@@ -95,8 +95,8 @@ const Parameter = () => {
                             <label>Condition</label>
                             <select value={condition} onChange={handleConditionChange}>
                                 <option value="Normal">Normal</option>
-                                <option value="Atopic Dermatitis">Dry</option>
-                                <option value="Melanoma">Oily</option>
+                                <option value="Atopic Dermatitis">Atopic Dermatitis</option>
+                                <option value="Melanoma">Melanoma</option>
                             </select>
                         </div>
 

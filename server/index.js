@@ -7,8 +7,6 @@ const pool = require("./db"); // require the db.js file from parent folder
 app.use(cors());
 app.use(express.json());
 
-
-
 //ROUTES//
 
 // get all bios

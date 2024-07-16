@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState, useRef } from 'react';
-import { scaleLinear, extent, axisRight, axisLeft, axisBottom, scaleLog, select } from 'd3';
+import { scaleLinear, format, axisRight, axisLeft, axisBottom, scaleLog, select, symbol, symbolSquare, symbolTriangle } from 'd3';
 import { BioContext } from '../BioContext';
 
 const DotPlot = ({ width = 800, height = 400 }) => {
@@ -54,20 +54,24 @@ const DotPlot = ({ width = 800, height = 400 }) => {
 
         // Create scales
         const xScale = scaleLog()
-            .domain(extent(frequency))
+            .domain([10**3, 2.5*10**6])
             .range([0, plotWidth]);
 
-        const yScaleLeft = scaleLinear()
-            .domain(extent(impedance))
+        const yScaleLeft = scaleLog()
+            .domain([1, 10**3])
             .range([plotHeight, 0]);
 
         const yScaleRight = scaleLinear()
-            .domain(extent(phase))
+            .domain([0, 90])
             .range([plotHeight, 0]);
 
         // Create axes
-        const xAxis = axisBottom(xScale).ticks(10, "~s");
-        const yAxisLeft = axisLeft(yScaleLeft);
+        const xAxis = axisBottom(xScale)
+            .tickValues([10**3, 10**4, 10**5, 10**6])
+            .tickFormat(format(".1e"));
+        const yAxisLeft = axisLeft(yScaleLeft)
+            .tickValues([10, 100, 1000])
+            .tickFormat(format(".0s"));
         const yAxisRight = axisRight(yScaleRight);
 
         // Append axes to the SVG
@@ -86,7 +90,7 @@ const DotPlot = ({ width = 800, height = 400 }) => {
             .attr('transform', 'rotate(-90)')
             .attr('y', -margin.left / 1.5)
             .attr('x', -plotHeight / 2)
-            .attr('fill', '#333')
+            .attr('fill', 'blue')
             .attr('text-anchor', 'middle')
             .text('Impedance / kΩ');
 
@@ -97,28 +101,26 @@ const DotPlot = ({ width = 800, height = 400 }) => {
             .attr('transform', 'rotate(-90)')
             .attr('y', margin.right / 1.5)
             .attr('x', -plotHeight / 2)
-            .attr('fill', '#333')
+            .attr('fill', 'red')
             .attr('text-anchor', 'middle')
             .text('Phase / °');
 
-        // Append circles for impedance
+        // Append squares for impedance
         svg.selectAll('.dot-impedance')
             .data(impedance)
-            .enter().append('circle')
+            .enter().append('path')
             .attr('class', 'dot-impedance')
-            .attr('cx', (d, i) => xScale(frequency[i]))
-            .attr('cy', d => yScaleLeft(d))
-            .attr('r', 3)
+            .attr('d', symbol().type(symbolSquare).size(64))
+            .attr('transform', (d, i) => `translate(${xScale(frequency[i])}, ${yScaleLeft(d)})`)
             .style('fill', 'steelblue');
 
-        // Append circles for phase
+        // Append triangles for phase
         svg.selectAll('.dot-phase')
             .data(phase)
-            .enter().append('circle')
+            .enter().append('path')
             .attr('class', 'dot-phase')
-            .attr('cx', (d, i) => xScale(frequency[i]))
-            .attr('cy', d => yScaleRight(d))
-            .attr('r', 3)
+            .attr('d', symbol().type(symbolTriangle).size(64))
+            .attr('transform', (d, i) => `translate(${xScale(frequency[i])}, ${yScaleRight(d)})`)
             .style('fill', 'red');
 
     }, [bio, frequency, phase, impedance, width, height]);

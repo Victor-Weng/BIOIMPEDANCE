@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import LinePlot from './LinePlot.js'
+import DotPlot from './DotPlot.js'
 
 const Graph = () => {
 
@@ -7,7 +7,7 @@ const Graph = () => {
         <Fragment>
             <div>
                 <h1>Bios Data</h1>
-                <LinePlot/>
+                <DotPlot/>
             </div>
         </Fragment>
     );

@@ -6,25 +6,36 @@
     justify-content: space-between; /* Space out items */
     align-items: center; /* Center items vertically */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    padding: 100px
-  }
-  
-  .header .logo {
+    width: 100%;
+    position: fixed;
+    top: 0; /* Ensure it's at the top */
+    left: 0; /* Align to the left */
+    padding: 10px 20px; /* Padding inside the header */
+    box-sizing: border-box; /* Include padding and border in width */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Logo Styling */
+.header .logo {
     font-size: 1.5em; /* Larger font size for logo */
     font-weight: bold; /* Bold text for logo */
-  }
-  
-  .header .nav {
+    padding-left: 1rem;
+}
+
+/* Navigation Styling */
+.header .nav {
     display: flex;
     gap: 15px; /* Space between nav items */
-  }
-  
-  .header .nav a {
+}
+
+/* Navigation Links Styling */
+.header .nav a {
     color: #fff; /* Light text color for links */
     text-decoration: none; /* Remove underline */
     transition: color 0.3s; /* Smooth transition for hover effect */
-  }
-  
-  .header .nav a:hover {
+}
+
+/* Navigation Links Hover Effect */
+.header .nav a:hover {
     color: #1e90ff; /* Change color on hover */
-  }
+}

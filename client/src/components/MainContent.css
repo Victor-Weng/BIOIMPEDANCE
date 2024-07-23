@@ -2,7 +2,7 @@
 .main-content {
     background-color: #121212; /* Dark background color */
     color: #e0e0e0; /* Light text color */
-    padding: 20px; /* Padding around the content */
+    padding: 0rem 1rem 0rem 2rem; /* Top Right Bottom Left */
     border-radius: 0px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
     height: 100%; /* Make sure it takes up full height of parent */
@@ -30,7 +30,7 @@
     background-color: #1e1e1e; /* Slightly lighter dark background for each block */
     color: #e0e0e0; /* Light text color */
     padding: 20px; /* Padding inside each block */
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 0px; /* Rounded corners */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Light shadow for separation */
     flex: 1; /* Allow each block to expand and fill the container */
   }

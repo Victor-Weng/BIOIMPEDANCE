@@ -1,9 +1,27 @@
+/* Flex container with two columns */
+.parameter-flex {
+    display: flex;
+}
+
+/* Flex items will automatically size based on their content */
+.parameter-flex > * {
+    flex: 1 1 auto; /* Allow flex items to grow and shrink based on their content */
+}
+
+/* Optional: Adjust spacing between the columns */
+.parameter-flex > * + * {
+    margin-left: 0px; /* Space between columns, adjust as needed */
+}
+
+/* General container for the layout */
 .container {
     display: flex;
     height: 100vh;
-  }
-  
-  .sidebar {
+    z-index: 100;
+}
+
+/* Sidebar styling */
+.sidebar {
     width: 250px;
     min-width: 40px; /* Ensure minimum width for closed state */
     height: 100%;
@@ -11,67 +29,80 @@
     background-color: #f9f9f9;
     border-right: 1px solid #ddd;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .sidebar.closed {
+}
+
+.sidebar.closed {
     width: 40px;
-  }
-  
-  .toggle-button {
-    position: absolute;
-    top: 10px;
-    left: 100%; /* Place button to the right of the sidebar */
+}
+
+/* Wrapper for the toggle button to ensure it aligns correctly */
+.toggle-button-wrapper {
+    flex: 0 1 10%; /* Fixed width for the toggle button */
+    display: flex; /* Ensure it uses flexbox for alignment */
+    justify-content: center; /* Center the toggle button horizontally */
+    background-color: transparent; /* Transparent background */
+}
+
+/* Toggle button styling */
+.toggle-button {
     width: 20px;
     height: 40px;
-    background-color: #007bff;
+    background-color: #1a2025;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     border-radius: 3px 0 0 3px;
-    margin-left: -20px; /* Adjust to ensure button is aligned properly */
-  }
-  
-  .parameter-content {
-    padding: 20px;
-  }
-  
-  h2 {
+}
+
+/* Parameter content styling */
+.parameter-content {
+    padding: 0px 20px 20px 20px; /*top, right, bottom, and left */
+}
+
+/* Heading styling */
+h2 {
     font-size: 1.5em;
     margin-bottom: 1em;
     color: #333;
-  }
-  
-  .parameter {
+}
+
+/* Parameter styling */
+.parameter {
     margin-bottom: 1.5em;
-  }
-  
-  label {
+}
+
+/* Label styling */
+label {
     display: block;
     font-size: 1em;
     margin-bottom: 0.5em;
     color: #555;
-  }
-  
-  input[type="range"] {
+}
+
+/* Input range styling */
+input[type="range"] {
     width: 100%;
-  }
-  
-  span {
+}
+
+/* Span styling */
+span {
     display: block;
     text-align: center;
     margin-top: 0.5em;
     font-size: 1em;
     color: #333;
-  }
-  
-  .depth-switch {
+}
+
+/* Depth switch button group */
+.depth-switch {
     display: flex;
     justify-content: space-between;
-  }
-  
-  .depth-switch button {
+}
+
+/* Depth switch button styling */
+.depth-switch button {
     flex: 1;
     padding: 10px;
     margin: 0 5px;
@@ -79,22 +110,24 @@
     border: 1px solid #ddd;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .depth-switch button.active {
-    background-color: #007bff;
+}
+
+.depth-switch button.active {
+    background-color: #131e2a;
     color: #fff;
-  }
-  
-  select {
+}
+
+/* Select dropdown styling */
+select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     background-color: #fff;
     cursor: pointer;
-  }
-  
-  .calculate-button {
+}
+
+/* Calculate button styling */
+.calculate-button {
     display: block;
     width: 100%;
     padding: 10px;
@@ -103,25 +136,8 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .calculate-button:hover {
-    background-color: #0056b3;
-  }
-  
+}
 
-  /* Toggle button styling */
-  .toggle-button {
-    position: relative; /* Positioned relative to the sidebar */
-    left: 100%; /* Positioned just outside the right edge of the sidebar */
-    width: 20px;
-    height: 40px;
-    background-color: #007bff;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: 3px 0 0 3px;
-    margin-left: -30px; /* Adjust this to overlap or not overlap the sidebar */
-  }
+.calculate-button:hover {
+    background-color: #0056b3;
+}

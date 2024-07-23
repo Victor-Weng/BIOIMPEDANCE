@@ -81,7 +81,7 @@ const DotPlot = ({ width = 800, height = 400 }) => {
             .append('text') // X-axis title
             .attr('x', plotWidth / 2)
             .attr('y', margin.bottom / 1.5)
-            .attr('fill', '#333')
+            .attr('fill', 'white')
             .attr('text-anchor', 'middle')
             .text('Frequency / Hz');
 

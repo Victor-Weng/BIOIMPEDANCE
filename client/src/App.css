@@ -1,3 +1,10 @@
+html, body {
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+  width: 100%; /* Ensure full width */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -13,14 +20,15 @@
 .content {
   display: flex;
   flex: 1 1 auto;
-  background-color: #e9ecef;
+  background-color: #424242;
+  margin-top: 60px;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
-  flex: 0 1 200px;
-  background-color: #dee2e6;
+  flex: 0 0 200px;
+  background-color: #ced4da;
   padding: 1rem;
 }
 

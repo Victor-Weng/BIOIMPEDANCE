@@ -63,43 +63,64 @@ const DotPlot = ({ width = 800, height = 400 }) => {
 
         const xAxis = axisBottom(xScale)
             .tickValues([10**3, 10**4, 10**5, 10**6])
-            .tickFormat(format(".1e"))
+            .tickFormat(format(".1e"));
 
         const yAxisLeft = axisLeft(yScaleLeft)
             .tickValues([10, 100, 1000])
-            .tickFormat(format(".0s"))
+            .tickFormat(format(".0s"));
 
-        const yAxisRight = axisRight(yScaleRight)
+        const yAxisRight = axisRight(yScaleRight);
 
+        // Append X axis and set font size
         svg.append('g')
             .attr('transform', `translate(0,${plotHeight})`)
             .call(xAxis)
+            .selectAll('text')
+            .style('font-size', '16px');  // Increase font size for x-axis ticks
+
+        svg.append('g')
+            .attr('transform', `translate(0,${plotHeight})`)
             .append('text')
             .attr('x', plotWidth / 2)
-            .attr('y', margin.bottom / 1.5)
+            .attr('y', margin.bottom - 10)  // Increase spacing between axis title and axis
             .attr('fill', 'white')
             .attr('text-anchor', 'middle')
+            .style('font-size', '18px')  // Increase font size for x-axis label
             .text('Frequency / Hz');
+
+        // Append Left Y axis and set font size
+        svg.append('g')
+            .call(yAxisLeft)
+            .selectAll('text')
+            .style('font-size', '16px');  // Increase font size for y-axis ticks
 
         svg.append('g')
             .call(yAxisLeft)
             .append('text')
             .attr('transform', 'rotate(-90)')
-            .attr('y', -margin.left / 1.5)
+            .attr('y', -margin.left + 10)  // Increase spacing between y-axis title and axis
             .attr('x', -plotHeight / 2)
             .attr('fill', 'steelblue')
             .attr('text-anchor', 'middle')
+            .style('font-size', '18px')  // Increase font size for y-axis label
             .text('Impedance / kΩ');
 
+        // Append Right Y axis and set font size
         svg.append('g')
             .attr('transform', `translate(${plotWidth},0)`)
             .call(yAxisRight)
+            .selectAll('text')
+            .style('font-size', '16px');  // Increase font size for y-axis ticks
+
+        svg.append('g')
+            .attr('transform', `translate(${plotWidth},0)`)
             .append('text')
             .attr('transform', 'rotate(-90)')
-            .attr('y', margin.right / 1.5)
+            .attr('y', margin.right - 10)  // Increase spacing between y-axis title and axis
             .attr('x', -plotHeight / 2)
             .attr('fill', 'red')
             .attr('text-anchor', 'middle')
+            .style('font-size', '18px')  // Increase font size for y-axis label
             .text('Phase / °');
 
         // Animate the transition of lines

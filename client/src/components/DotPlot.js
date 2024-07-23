@@ -90,7 +90,7 @@ const DotPlot = ({ width = 800, height = 400 }) => {
             .attr('transform', 'rotate(-90)')
             .attr('y', -margin.left / 1.5)
             .attr('x', -plotHeight / 2)
-            .attr('fill', 'blue')
+            .attr('fill', 'steelblue')
             .attr('text-anchor', 'middle')
             .text('Impedance / kΩ');
 

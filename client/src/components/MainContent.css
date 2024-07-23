@@ -1,0 +1,43 @@
+/* Main Content Container */
+.main-content {
+    background-color: #121212; /* Dark background color */
+    color: #e0e0e0; /* Light text color */
+    padding: 20px; /* Padding around the content */
+    border-radius: 0px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    height: 100%; /* Make sure it takes up full height of parent */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange children in a column */
+  }
+  
+  /* Main Title Styling */
+  .main-title {
+    font-size: 2em; /* Larger font size for the title */
+    margin-bottom: 1em; /* Space below the title */
+    color: #ffffff; /* White text color for the title */
+  }
+  
+  /* Content Container */
+  .content-container {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items in a column */
+    gap: 20px; /* Space between the content blocks */
+    flex: 1; /* Allow it to expand and fill available space */
+  }
+  
+  /* Content Blocks (Overview, Score, Graph) */
+  .content-container > * {
+    background-color: #1e1e1e; /* Slightly lighter dark background for each block */
+    color: #e0e0e0; /* Light text color */
+    padding: 20px; /* Padding inside each block */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Light shadow for separation */
+    flex: 1; /* Allow each block to expand and fill the container */
+  }
+  
+  /* Optional: Hover Effect */
+  .content-container > *:hover {
+    background-color: #2c2c2c; /* Darker background on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
+  }
+  

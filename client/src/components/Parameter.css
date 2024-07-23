@@ -1,21 +1,26 @@
-.sidebar {
-    position: relative;
+.container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
     width: 250px;
+    min-width: 40px; /* Ensure minimum width for closed state */
     height: 100%;
     transition: width 0.3s ease;
     background-color: #f9f9f9;
     border-right: 1px solid #ddd;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar.closed {
+  }
+  
+  .sidebar.closed {
     width: 40px;
-}
-
-.toggle-button {
+  }
+  
+  .toggle-button {
     position: absolute;
     top: 10px;
-    right: -20px;
+    left: 100%; /* Place button to the right of the sidebar */
     width: 20px;
     height: 40px;
     background-color: #007bff;
@@ -24,48 +29,49 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-radius: 0 3px 3px 0;
-}
-
-.parameter-content {
+    border-radius: 3px 0 0 3px;
+    margin-left: -20px; /* Adjust to ensure button is aligned properly */
+  }
+  
+  .parameter-content {
     padding: 20px;
-}
-
-h2 {
+  }
+  
+  h2 {
     font-size: 1.5em;
     margin-bottom: 1em;
     color: #333;
-}
-
-.parameter {
+  }
+  
+  .parameter {
     margin-bottom: 1.5em;
-}
-
-label {
+  }
+  
+  label {
     display: block;
     font-size: 1em;
     margin-bottom: 0.5em;
     color: #555;
-}
-
-input[type="range"] {
+  }
+  
+  input[type="range"] {
     width: 100%;
-}
-
-span {
+  }
+  
+  span {
     display: block;
     text-align: center;
     margin-top: 0.5em;
     font-size: 1em;
     color: #333;
-}
-
-.depth-switch {
+  }
+  
+  .depth-switch {
     display: flex;
     justify-content: space-between;
-}
-
-.depth-switch button {
+  }
+  
+  .depth-switch button {
     flex: 1;
     padding: 10px;
     margin: 0 5px;
@@ -73,22 +79,22 @@ span {
     border: 1px solid #ddd;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-}
-
-.depth-switch button.active {
+  }
+  
+  .depth-switch button.active {
     background-color: #007bff;
     color: #fff;
-}
-
-select {
+  }
+  
+  select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     background-color: #fff;
     cursor: pointer;
-}
-
-.calculate-button {
+  }
+  
+  .calculate-button {
     display: block;
     width: 100%;
     padding: 10px;
@@ -97,8 +103,25 @@ select {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.calculate-button:hover {
+  }
+  
+  .calculate-button:hover {
     background-color: #0056b3;
-}
+  }
+  
+
+  /* Toggle button styling */
+  .toggle-button {
+    position: relative; /* Positioned relative to the sidebar */
+    left: 100%; /* Positioned just outside the right edge of the sidebar */
+    width: 20px;
+    height: 40px;
+    background-color: #007bff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 3px 0 0 3px;
+    margin-left: -30px; /* Adjust this to overlap or not overlap the sidebar */
+  }

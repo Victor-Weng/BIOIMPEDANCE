@@ -1,18 +1,28 @@
 import React from 'react';
 import Parameter from './components/Parameter';
 import MainContent from './components/MainContent';
-import { BioProvider } from './BioContext';
+import { BioContext, BioProvider } from './BioContext';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import './App.css';
 
-const App = () => {
-    return (
-        <BioProvider>
-            <div className="app">
-                <Parameter />
-                <MainContent />
-            </div>
-        </BioProvider>
-    );
+function App() {
+  return (
+    <BioProvider>
+    <div className="container">
+      <Header />
+      <div className="content">
+        <div>
+          <Parameter/>
+        </div>
+        <div className="main">
+          <MainContent/>
+        </div>
+      </div>
+      <Footer />
+    </div>
+    </BioProvider>
+  );
 }
 
 export default App;

@@ -1,0 +1,30 @@
+/* Header Styling */
+.header {
+    background-color: #121212; /* Dark background for the header */
+    color: #fff; /* Light text color */
+    display: flex;
+    justify-content: space-between; /* Space out items */
+    align-items: center; /* Center items vertically */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    padding: 100px
+  }
+  
+  .header .logo {
+    font-size: 1.5em; /* Larger font size for logo */
+    font-weight: bold; /* Bold text for logo */
+  }
+  
+  .header .nav {
+    display: flex;
+    gap: 15px; /* Space between nav items */
+  }
+  
+  .header .nav a {
+    color: #fff; /* Light text color for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .header .nav a:hover {
+    color: #1e90ff; /* Change color on hover */
+  }

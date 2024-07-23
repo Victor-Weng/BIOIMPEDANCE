@@ -9,8 +9,8 @@ import './App.css';
 function App() {
   return (
     <BioProvider>
+    <Header />
     <div className="container">
-      <Header />
       <div className="content">
         <div>
           <Parameter/>

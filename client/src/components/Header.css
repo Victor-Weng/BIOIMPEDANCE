@@ -1,41 +1,69 @@
 /* Header Styling */
 .header {
-    background-color: #121212; /* Dark background for the header */
-    color: #fff; /* Light text color */
+    background-color: #121212;
+    color: #fff;
     display: flex;
-    justify-content: space-between; /* Space out items */
-    align-items: center; /* Center items vertically */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     width: 100%;
     position: fixed;
-    top: 0; /* Ensure it's at the top */
-    left: 0; /* Align to the left */
-    padding: 10px 20px; /* Padding inside the header */
-    box-sizing: border-box; /* Include padding and border in width */
-    z-index: 1000; /* Ensure it stays above other content */
-}
-
-/* Logo Styling */
-.header .logo {
-    font-size: 1.5em; /* Larger font size for logo */
-    font-weight: bold; /* Bold text for logo */
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
+  
+  /* Logo Styling */
+  .header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
     padding-left: 1rem;
-}
-
-/* Navigation Styling */
-.header .nav {
+    transition: text-shadow 0.3s ease-in-out;
+  }
+  
+  .header .logo:hover {
+    text-shadow: 0 0 8px #1e90ff;
+  }
+  
+  /* Navigation Styling */
+  .header .nav {
     display: flex;
-    gap: 15px; /* Space between nav items */
-}
-
-/* Navigation Links Styling */
-.header .nav a {
-    color: #fff; /* Light text color for links */
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s; /* Smooth transition for hover effect */
-}
-
-/* Navigation Links Hover Effect */
-.header .nav a:hover {
-    color: #1e90ff; /* Change color on hover */
-}
+    gap: 20px;
+  }
+  
+  /* Navigation Links Styling */
+  .header .nav a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  /* Navigation Links Hover Effect */
+  .header .nav a:hover {
+    color: #1e90ff;
+  }
+  
+  .header .nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #1e90ff;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+  }
+  
+  .header .nav a:hover::after {
+    width: 100%;
+  }
+  
+  /* Adding glow effect to navigation links */
+  .header .nav a:hover {
+    text-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
+  }
+  

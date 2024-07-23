@@ -5,8 +5,7 @@ const Graph = () => {
 
     return (
         <Fragment>
-            <div>
-                <h1>Bios Data</h1>
+            <div className="center-child">
                 <DotPlot/>
             </div>
         </Fragment>

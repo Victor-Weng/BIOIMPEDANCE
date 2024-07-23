@@ -1,4 +1,28 @@
 /* Main Content Container */
+
+.surround-overview{
+    margin-top: 4em;
+    margin-left: 8em;
+
+}
+
+.parent {
+    display: flex; /* Use Flexbox for layout */
+    width: 100%; /* Full width of the container */
+    margin: 0; /* Remove default margin */
+    padding: 2rem; /* Padding inside the parent */
+    text-align: center; /* Center text */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.child {
+    flex: 1; /* Each child takes up equal space */
+    padding: 1rem; /* Padding inside each child */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    margin: 0 1rem; /* Optional: Add horizontal spacing between children */
+}
+
+
 .main-content {
     background-color: #121212; /* Dark background color */
     color: #e0e0e0; /* Light text color */
@@ -12,9 +36,11 @@
   
   /* Main Title Styling */
   .main-title {
-    font-size: 2em; /* Larger font size for the title */
-    margin-bottom: 1em; /* Space below the title */
-    color: #ffffff; /* White text color for the title */
+    margin-bottom: 0em; /* Space below the title */
+    font-size: 5em;
+    font-family: Helvetica;
+    margin-left: 0px;
+    text-align: left;
   }
   
   /* Content Container */
@@ -30,7 +56,7 @@
     background-color: #1e1e1e; /* Slightly lighter dark background for each block */
     color: #e0e0e0; /* Light text color */
     padding: 20px; /* Padding inside each block */
-    border-radius: 0px; /* Rounded corners */
+    border-radius: 0.8em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Light shadow for separation */
     flex: 1; /* Allow each block to expand and fill the container */
   }
@@ -41,3 +67,65 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
   }
   
+
+/* Main Content Styling */
+.main-content {
+    padding: 20px;
+}
+
+.main-title-color {
+    color: #ffffff; /* White text color for the title */
+}
+
+/* Condition Message Styling */
+.condition-message {
+    margin-bottom: 0.2em; /* Space below the title */
+    font-size: 5em;
+    font-family: Helvetica;
+    text-align: left;
+    margin-top: -0.5em;
+    margin-left: -0.6em;
+}
+
+/* Specific Condition Styling */
+/* Keyframes for Color Animation */
+@keyframes healthy-color {
+    0% { color: #7ded81; }
+    50% { color: #0b501b; }
+    100% { color: #7ded81; }
+}
+
+@keyframes atopic-dermatitis-color {
+    0% { color: #2196F3; }
+    50% { color: #0B3C7E; }
+    100% { color: #2196F3; }
+}
+
+@keyframes benign-melanoma-color {
+    0% { color: #FF9800; }
+    50% { color: #7c3008; }
+    100% { color: #FF9800; }
+}
+
+@keyframes malignant-melanoma-color {
+    0% { color: #F44336; }
+    50% { color: #580404; }
+    100% { color: #F44336; }
+}
+
+/* Specific Condition Styling with Animation */
+.healthy {
+    animation: healthy-color 3s infinite;
+}
+
+.atopic-dermatitis {
+    animation: atopic-dermatitis-color 3s infinite;
+}
+
+.benign-melanoma {
+    animation: benign-melanoma-color 3s infinite;
+}
+
+.malignant-melanoma {
+    animation: malignant-melanoma-color 3s infinite;
+}

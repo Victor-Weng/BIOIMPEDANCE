@@ -1,6 +1,5 @@
 import React, { useState, useContext, Fragment } from 'react';
 import { BioContext } from '../BioContext';
-import {Spinner} from "@nextui-org/react";
 import './Parameter.css';
 
 const Parameter = () => {

@@ -7,6 +7,7 @@ const Overview = () => {
     const { bio, fetchBio } = useContext(BioContext);
 
     return <Fragment>
+        <div className="padding">
         {bio ? (
             <Card className="py-4">
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
@@ -39,7 +40,9 @@ const Overview = () => {
             ) : (
                 <p>No bios data available</p>
             )}
+            </div>
     </Fragment>
+    
 }
 
 export default Overview;

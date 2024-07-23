@@ -3,6 +3,7 @@ html, body {
   padding: 0; /* Remove default padding */
   width: 100%; /* Ensure full width */
   overflow-x: hidden; /* Prevent horizontal overflow */
+  background-color: black;
 }
 
 .container {
@@ -20,7 +21,7 @@ html, body {
 .content {
   display: flex;
   flex: 1 1 auto;
-  background-color: #424242;
+  background-color: #ced4da;
   margin-top: 60px;
 }
 

@@ -11,7 +11,6 @@ const DotPlot = ({ width = 800, height = 400 }) => {
 
     useEffect(() => {
         if (bio) {
-            // Convert fetched data to numbers
             const numericFrequency = bio.frequency ? parseFloat(bio.frequency) : 0;
             const numericPhase = bio.phase.map(value => Math.abs(parseFloat(value)));
             const numericImpedance = bio.impedance.map(parseFloat);
@@ -42,17 +41,14 @@ const DotPlot = ({ width = 800, height = 400 }) => {
         const plotWidth = width - margin.left - margin.right;
         const plotHeight = height - margin.top - margin.bottom;
 
-        // Clear previous svg content
         select(svgRef.current).selectAll('*').remove();
 
-        // Create the SVG container
         const svg = select(svgRef.current)
             .attr('width', width)
             .attr('height', height)
             .append('g')
             .attr('transform', `translate(${margin.left},${margin.top})`);
 
-        // Create scales
         const xScale = scaleLog()
             .domain([10**3, 2.5*10**6])
             .range([0, plotWidth]);
@@ -65,28 +61,29 @@ const DotPlot = ({ width = 800, height = 400 }) => {
             .domain([0, 90])
             .range([plotHeight, 0]);
 
-        // Create axes
         const xAxis = axisBottom(xScale)
             .tickValues([10**3, 10**4, 10**5, 10**6])
-            .tickFormat(format(".1e"));
+            .tickFormat(format(".1e"))
+
         const yAxisLeft = axisLeft(yScaleLeft)
             .tickValues([10, 100, 1000])
-            .tickFormat(format(".0s"));
-        const yAxisRight = axisRight(yScaleRight);
+            .tickFormat(format(".0s"))
 
-        // Append axes to the SVG
+        const yAxisRight = axisRight(yScaleRight)
+
         svg.append('g')
             .attr('transform', `translate(0,${plotHeight})`)
             .call(xAxis)
-            .append('text') // X-axis title
+            .append('text')
             .attr('x', plotWidth / 2)
             .attr('y', margin.bottom / 1.5)
             .attr('fill', 'white')
             .attr('text-anchor', 'middle')
             .text('Frequency / Hz');
 
-        svg.append('g').call(yAxisLeft)
-            .append('text') // Left Y-axis title
+        svg.append('g')
+            .call(yAxisLeft)
+            .append('text')
             .attr('transform', 'rotate(-90)')
             .attr('y', -margin.left / 1.5)
             .attr('x', -plotHeight / 2)
@@ -97,7 +94,7 @@ const DotPlot = ({ width = 800, height = 400 }) => {
         svg.append('g')
             .attr('transform', `translate(${plotWidth},0)`)
             .call(yAxisRight)
-            .append('text') // Right Y-axis title
+            .append('text')
             .attr('transform', 'rotate(-90)')
             .attr('y', margin.right / 1.5)
             .attr('x', -plotHeight / 2)
@@ -105,23 +102,32 @@ const DotPlot = ({ width = 800, height = 400 }) => {
             .attr('text-anchor', 'middle')
             .text('Phase / °');
 
-        // Append squares for impedance
+        // Animate the transition of lines
+        const lineTransitionDuration = 1500;
+
         svg.selectAll('.dot-impedance')
             .data(impedance)
             .enter().append('path')
             .attr('class', 'dot-impedance')
             .attr('d', symbol().type(symbolSquare).size(64))
             .attr('transform', (d, i) => `translate(${xScale(frequency[i])}, ${yScaleLeft(d)})`)
-            .style('fill', 'steelblue');
+            .style('fill', 'steelblue')
+            .attr('opacity', 0)
+            .transition()
+            .duration(lineTransitionDuration)
+            .attr('opacity', 1);
 
-        // Append triangles for phase
         svg.selectAll('.dot-phase')
             .data(phase)
             .enter().append('path')
             .attr('class', 'dot-phase')
             .attr('d', symbol().type(symbolTriangle).size(64))
             .attr('transform', (d, i) => `translate(${xScale(frequency[i])}, ${yScaleRight(d)})`)
-            .style('fill', 'red');
+            .style('fill', 'red')
+            .attr('opacity', 0)
+            .transition()
+            .duration(lineTransitionDuration)
+            .attr('opacity', 1);
 
     }, [bio, frequency, phase, impedance, width, height]);
 

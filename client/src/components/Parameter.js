@@ -1,10 +1,11 @@
-import React, { useState, useContext, Fragment } from 'react';
+import React, { useEffect, useState, useContext, Fragment } from 'react';
 import { BioContext } from '../BioContext';
 import './Parameter.css';
 
 const Parameter = () => {
     const { fetchBio } = useContext(BioContext);
     const [isOpen, setIsOpen] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     const [frequency, setFrequency] = useState(2500000);
     const [depth, setDepth] = useState(0.1);
@@ -21,12 +22,33 @@ const Parameter = () => {
     const toggleSidebar = () => setIsOpen(!isOpen);
 
     const handleCalculateClick = () => {
+        setIsLoading(true);
         console.log("Clicked")
-        fetchBio(frequency, depth, meshSize, location, condition);
+        fetchBio(frequency, depth, meshSize, location, condition)
+        .finally(() => setIsLoading(false));
     };
+
+    // Effect to reset GIF
+    useEffect(() => {
+        if (isLoading) {
+            // Reset the GIF by temporarily removing and re-adding the loading overlay
+            const overlay = document.querySelector('.loading-overlay');
+            if (overlay) {
+                overlay.classList.remove('visible');
+                void overlay.offsetWidth; // Trigger reflow to reset CSS
+                overlay.classList.add('visible');
+            }
+        }
+    }, [isLoading]);
 
     return (
         <Fragment>
+            <div>
+            {isLoading && (
+                <div className={`loading-overlay ${isLoading ? 'visible' : ''}`}>
+                    <div className="loading-overlay"/>
+                </div>
+            )}
             <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
                 <div className="parameter-flex">
                     {isOpen && (
@@ -108,6 +130,7 @@ const Parameter = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </Fragment>
     );
 };

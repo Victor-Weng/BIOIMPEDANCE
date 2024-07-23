@@ -42,13 +42,15 @@ const MainContent = () => {
                         <h1 className="main-title">Your skin is...</h1>
                     )}
                     <div className="child">
-                        <div className="surround-overview">
-                            <Overview/>
+                        <div className="surround-overview content-container-surround">
+                            <div>
+                                <Overview/>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="content-container">
-                    <Graph />
+                <div className="center">
+                <Graph />
                 </div>
             </div>
         </Fragment>

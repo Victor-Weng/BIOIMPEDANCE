@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useContext} from 'react';
 import Parameter from './components/Parameter';
 import MainContent from './components/MainContent';
 import { BioContext, BioProvider } from './BioContext';
@@ -7,6 +7,8 @@ import Footer from './components/Footer';
 import './App.css';
 
 function App() {
+  const { bio } = useContext(BioContext);
+  
   return (
     <BioProvider>
     <Header />
@@ -15,9 +17,15 @@ function App() {
         <div>
           <Parameter/>
         </div>
-        <div className="main">
+        {bio? (
+          <div className="main">
           <MainContent/>
-        </div>
+          </div>
+        ):(
+          <div className="main-image">
+            <MainContent/>
+            </div>
+        )}
       </div>
       <Footer />
     </div>

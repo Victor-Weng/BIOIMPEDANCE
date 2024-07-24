@@ -45,6 +45,14 @@ html, body {
   flex: 1 1 auto;
 }
 
+.main-image{
+  flex: 1 1 auto;
+  background-image: url('./assets/images/gradientGIF.gif');
+  background-size: cover;
+  background-position: center;
+  padding: 1rem;
+}
+
 .footer {
   flex: 0 1 auto;
   padding: 1rem;

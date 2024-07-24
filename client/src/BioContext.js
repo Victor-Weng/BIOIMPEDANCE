@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
 
-export const BioContext = createContext();
+export const BioContext = createContext({ bio: null });
 
 
 export const BioProvider = ({ children }) => {

@@ -3,7 +3,6 @@
     background-color: #121212; /* Darker background for the footer */
     color: #bbb; /* Light gray text color */
     text-align: center; /* Center text horizontally */
-    border-top: 1px solid #444; /* Subtle border at the top */
     width: 100%;
     z-index: 1000; /* Ensure it stays above other content */
   }

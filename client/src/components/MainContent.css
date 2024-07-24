@@ -29,6 +29,10 @@
     box-sizing: border-box; /* Include padding and border in width calculation */
 }
 
+.left-align {
+    text-align: left;
+}
+
 .child {
     flex: 1; /* Each child takes up equal space */
     padding: 1rem; /* Padding inside each child */
@@ -52,7 +56,10 @@
 .main-content {
     background-color: #101012; /* Dark background color */
     color: #e0e0e0; /* Light text color */
-    padding: 0rem 1rem 0rem 2rem; /* Top Right Bottom Left */
+    opacity: 0.95;
+    transition: opacity 0.3s; /* Smooth transition for hover effect */
+    padding: 0rem 1rem 1rem 2rem; /* Top Right Bottom Left */
+    margin-bottom: 1rem;
     border-radius: 0px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
     height: 100%; /* Make sure it takes up full height of parent */
@@ -60,6 +67,20 @@
     flex-direction: column; /* Arrange children in a column */
   }
   
+  .main-content-fade {
+    background-color: #101012; /* Dark background color */
+    opacity: 0.8;
+    color: #e0e0e0; /* Light text color */
+    padding: 0rem 1rem 1rem 2rem; /* Top Right Bottom Left */
+    margin-bottom: 1rem;
+    border-radius: 0px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    height: 100%; /* Make sure it takes up full height of parent */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange children in a column */
+  }
+
+
   /* Main Title Styling */
   .main-title {
     margin-bottom: 0em; /* Space below the title */
@@ -100,6 +121,7 @@
   
   /* Content Blocks (Overview, Score, Graph) */
   .content-container > * {
+    opacity: 1;
     background-color: #1e1e1e; /* Slightly lighter dark background for each block */
     color: #ffffff; /* Light text color */
     padding: 20px; /* Padding inside each block */
@@ -119,13 +141,9 @@
   }
   
 
-/* Main Content Styling */
-.main-content {
-    padding: 20px;
-}
 
 .main-title-color {
-    color: rgba(229, 229, 229, 0.731); /* White text color for the title */
+    color: rgba(255, 255, 255, 0.977); /* White text color for the title */
 }
 
 /* Condition Message Styling */

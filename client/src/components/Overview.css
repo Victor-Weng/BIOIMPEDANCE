@@ -1,9 +1,38 @@
-.padding {
-    padding: 2em;
-}
+/* App.css */
 
-p, div, h1, h2, h3, h4, h5, h6 {
-    color: white;
-    padding: 0em;
-    margin: 0em;
-}
+.container {
+    padding: 0px;
+  }
+  
+  .padding {
+    padding: 0;
+  }
+  
+  .bio-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    color: #333;
+    background: transparent;  /* Make the background transparent */
+  }
+  
+  .bio-table th, .bio-table td {
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .bio-table th {
+    background: transparent;  /* Make the header background transparent */
+    font-weight: bold;
+  }
+  
+  .bio-table tr:nth-of-type(even) {
+    background: transparent;  /* Make the alternating row background transparent */
+  }
+  
+  p {
+    color: #777;
+    font-size: 16px;
+  }
+  

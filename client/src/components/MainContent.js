@@ -1,5 +1,6 @@
 import { Fragment, useContext } from 'react';
-import { BioContext } from '../BioContext';
+import { BioContext, BioProvider } from '../BioContext';
+import { Skeleton, Divider } from '@nextui-org/react';
 import Graph from './Graph';
 import Overview from './Overview';
 import Score from './Score';
@@ -29,7 +30,7 @@ const MainContent = () => {
     return (
         <Fragment>
 
-            <div className="main-content">
+            <div className={bio ? "main-content" : "main-content-fade"}>
                 <div className="parent">
                     {bio ? (
                         <div className="child left-margin">
@@ -39,17 +40,33 @@ const MainContent = () => {
                             </span>
                         </div>
                     ) : (
-                        <h1 className="main-title">Your skin is...</h1>
+                        <div>
+                        <h1 className="main-title">Get started.</h1>
+                        <p className="left-align">This website is based on MATLAB and COMSOL mathematical models to generate electrical impedance
+                            spectroscopy data for atopic dermatitis and melanoma. With different depth settings,
+                            test locations, and frequencies, the data can be indicative of the condition of the skin.
+                        </p>
+                        <Divider/>
+                        <p className="left-align">
+                            Disclaimer: This website is for educational purposes only and should not be used as a diagnostic tool.
+                        </p>
+                        </div>
                     )}
                     <div className="child">
-                        <div className="surround-overview content-container">
-                            <Overview/>
+                        {bio ? (
+                            <div className="surround-overview content-container">
+                            <Overview />
                         </div>
+                        ):(null)}
                     </div>
                 </div>
-                <div className="center content-container">
-                <Graph />
-                </div>
+                {bio ? (
+                    <div className="center content-container">
+                        <Graph />
+                    </div>
+                ) : <Skeleton className="rounded-lg">
+                    <div className="h-24 rounded-lg bg-default-300"></div>
+                </Skeleton>}
             </div>
         </Fragment>
     );

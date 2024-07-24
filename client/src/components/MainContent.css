@@ -36,6 +36,12 @@
     margin: 0 1rem; /* Optional: Add horizontal spacing between children */
 }
 
+.left-margin {
+    margin-left: 4em;
+    margin-right: 0em;
+    padding-right: 0em;
+}
+
 .background {
     background-image: url('../assets/images/lightbackground.gif');
     background-size: cover;
@@ -71,8 +77,6 @@
 
   /* Content Blocks (Overview, Score, Graph) */
   .content-container-surround > * {
-    background-color: #ffffff77; /* Slightly lighter dark background for each block */
-    color: #e0e0e0; /* Light text color */
     padding: 20px; /* Padding inside each block */
     border-radius: 0.8em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Light shadow for separation */
@@ -81,8 +85,6 @@
   
   /* Optional: Hover Effect */
   .content-container-surround > *:hover {
-    background-color: #9bb9c7a1; /* Darker background on hover */
-    color: #e0e0e0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
   }
   
@@ -99,7 +101,7 @@
   /* Content Blocks (Overview, Score, Graph) */
   .content-container > * {
     background-color: #1e1e1e; /* Slightly lighter dark background for each block */
-    color: #e0e0e0; /* Light text color */
+    color: #ffffff; /* Light text color */
     padding: 20px; /* Padding inside each block */
     border-radius: 0.8em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Light shadow for separation */
@@ -123,7 +125,7 @@
 }
 
 .main-title-color {
-    color: #ffffff; /* White text color for the title */
+    color: rgba(229, 229, 229, 0.731); /* White text color for the title */
 }
 
 /* Condition Message Styling */

@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, Fragment } from 'react';
 import { BioContext } from '../BioContext';
-import {Divider, Card, CardHeader, Table, TableHeader, TableColumn, TableBody, TableRow, TableCell} from "@nextui-org/react";
+import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell} from "@nextui-org/react";
 
 
 const Overview = () => {
@@ -9,12 +9,10 @@ const Overview = () => {
     return <Fragment>
         <div className="padding">
         {bio ? (
-            <Card className="py-4">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                    <Table isStriped aria-label="Parameter Overview">
+                <Table isStriped hideHeader aria-label="Parameter Overview" color="danger">
                     <TableHeader>
-                        <TableColumn>PROPERTY</TableColumn>
-                        <TableColumn>VALUE</TableColumn>
+                        <TableColumn></TableColumn>
+                        <TableColumn></TableColumn>
                     </TableHeader>
                     <TableBody>
                         <TableRow key="1">
@@ -35,8 +33,6 @@ const Overview = () => {
                         </TableRow>
                     </TableBody>
                     </Table>
-                </CardHeader>
-              </Card>
             ) : (
                 <p>No bios data available</p>
             )}

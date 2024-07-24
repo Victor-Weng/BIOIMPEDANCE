@@ -1,9 +1,9 @@
-.grey {
-    color: grey;
-    padding: 0px;
-    margin: 0px;
-}
-
 .padding {
     padding: 2em;
+}
+
+p, div, h1, h2, h3, h4, h5, h6 {
+    color: white;
+    padding: 0em;
+    margin: 0em;
 }

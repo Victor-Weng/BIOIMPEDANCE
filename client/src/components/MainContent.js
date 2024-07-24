@@ -32,7 +32,7 @@ const MainContent = () => {
             <div className="main-content">
                 <div className="parent">
                     {bio ? (
-                        <div className="child">
+                        <div className="child left-margin">
                             <h1 className="main-title main-title-color">Your skin</h1>
                             <span className="condition-message inline-text">
                                 {getConditionMessage(bio.condition)}
@@ -42,14 +42,12 @@ const MainContent = () => {
                         <h1 className="main-title">Your skin is...</h1>
                     )}
                     <div className="child">
-                        <div className="surround-overview content-container-surround">
-                            <div>
-                                <Overview/>
-                            </div>
+                        <div className="surround-overview content-container">
+                            <Overview/>
                         </div>
                     </div>
                 </div>
-                <div className="center">
+                <div className="center content-container">
                 <Graph />
                 </div>
             </div>

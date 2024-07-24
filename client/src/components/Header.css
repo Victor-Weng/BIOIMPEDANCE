@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.5em 3em rgba(255, 255, 255, 0.536);
     width: 100%;
     position: fixed;
     top: 0;

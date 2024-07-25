@@ -65,7 +65,7 @@ const Parameter = () => {
                                     value={frequency} 
                                     onChange={handleFrequencyChange} 
                                 />
-                                <span>{frequency} Hz</span>
+                                <span>1000 - {frequency} Hz</span>
                             </div>
 
                             <div className="parameter">

@@ -53,7 +53,7 @@ const Parameter = () => {
                 <div className="parameter-flex">
                     {isOpen && (
                         <div className="parameter-content">
-                            <h2>Parameter List</h2>
+                            <h2>Parameters</h2>
 
                             <div className="parameter">
                                 <label>Frequency Range</label>

@@ -59,7 +59,7 @@ const Parameter = () => {
                                 <label>Frequency Range</label>
                                 <input 
                                     type="range" 
-                                    min="0" 
+                                    min="1000" 
                                     max="2500000" 
                                     step="500000" 
                                     value={frequency} 
@@ -104,7 +104,7 @@ const Parameter = () => {
                             <div className="parameter">
                                 <label>Test Location</label>
                                 <select value={location} onChange={handleLocationChange}>
-                                    <option value="Undefined">Undefined</option>
+                                    <option value="General">General</option>
                                     <option value="Arm">Arm</option>
                                     <option value="Leg">Leg</option>
                                     <option value="Chest">Chest</option>
@@ -116,7 +116,8 @@ const Parameter = () => {
                                 <select value={condition} onChange={handleConditionChange}>
                                     <option value="Normal">Normal</option>
                                     <option value="Atopic Dermatitis">Atopic Dermatitis</option>
-                                    <option value="Melanoma">Melanoma</option>
+                                    <option value="Early Stage Melanoma">Early Stage Melanoma</option>
+                                    <option value="Late Stage Melanoma">Late Stage Melanoma</option>
                                 </select>
                             </div>
 

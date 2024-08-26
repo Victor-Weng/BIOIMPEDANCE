@@ -50,7 +50,8 @@ const MainContent = () => {
 
                             <br/><br/>
                             To get started, select a depth and mesh size, then click calculate. 
-                            Frequency is left at 2.5Mhz, test location is left undefined, and conditions are being actively researched.
+                            <br/><br/>
+                            Frequency range is left at 2.5Mhz, test location is left general, and conditions are being actively researched.
                         </p>
                         <Divider/>
                         <p className="left-align">

@@ -59,7 +59,7 @@ const Parameter = () => {
                                 <label>Frequency Range</label>
                                 <input 
                                     type="range" 
-                                    min="1000" 
+                                    min="0" 
                                     max="2500000" 
                                     step="500000" 
                                     value={frequency} 

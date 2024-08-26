@@ -42,9 +42,14 @@ const MainContent = () => {
                     ) : (
                         <div>
                         <h1 className="main-title">Get started.</h1>
-                        <p className="left-align">This website is based on MATLAB and COMSOL mathematical models to generate electrical impedance
+                        <p className="left-align">This website is based on mathematical models to generate electrical impedance
                             spectroscopy data for atopic dermatitis and melanoma. With different depth settings,
-                            test locations, and frequencies, the data can be indicative of the condition of the skin.
+                            test locations, and frequencies, the data can be indicative of the condition of the skin. 
+                            This project is part of a long-term research initiative to develop a non-invasive method
+                            for skin disease detection, and as of result, is still in development. 
+
+                            <br/><br/>
+                            To get started, select a depth and mesh size, then click calculate. Test locations are left undefined and conditions are being actively researched.
                         </p>
                         <Divider/>
                         <p className="left-align">
